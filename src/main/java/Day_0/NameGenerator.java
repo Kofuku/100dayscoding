@@ -2,8 +2,54 @@ package Day_0;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class NameGenerator {
+
+    public static void main(String[] args) {
+        System.out.println(generatePerson());
+    }
+
+    private static String getGender() {
+        String gender;
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Are you male or female?: ");
+
+        while (true) {
+            String s = reader.nextLine();
+
+            if (!s.equalsIgnoreCase("male") && !s.equalsIgnoreCase("female")) {
+                System.out.println("Wrong input. Are you male or female?: ");
+            }
+            else {
+                gender = s;
+                break;
+            }
+        }
+        return gender;
+    }
+
+    private static String generatePerson() {
+        String personGender = getGender();
+        String person;
+        String name = "";
+        String surname = "";
+
+        int surnameRandom = ThreadLocalRandom.current().nextInt(0, femaleNamesArray.length);
+        if (personGender.equalsIgnoreCase("female")) {
+            int nameRandom = ThreadLocalRandom.current().nextInt(0, femaleNamesArray.length);
+            name = femaleNamesArray[nameRandom];
+            surname = (String) surnameMap.keySet().toArray()[surnameRandom];
+        } else if (personGender.equalsIgnoreCase("male")) {
+            int nameRandom = ThreadLocalRandom.current().nextInt(0, maleNamesArray.length);
+            name = maleNamesArray[nameRandom];
+            surname = (String) surnameMap.values().toArray()[surnameRandom];
+        }
+        person = name + " " + surname;
+        return person;
+
+    }
 
     private static String[] femaleNamesArray = {
         "Maria",

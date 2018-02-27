@@ -9,8 +9,8 @@
         <module name="_100dayscoding" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="_100dayscoding" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="_100dayscoding" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

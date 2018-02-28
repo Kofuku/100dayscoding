@@ -8,7 +8,6 @@ public class HigherLower {
 
     public static void main(String[] args) {
         int winner = ThreadLocalRandom.current().nextInt(1, 100);
-        System.out.println(winner);
         Scanner reader = new Scanner(System.in);
 
         System.out.println("Higher/Lower Game!");
@@ -23,23 +22,23 @@ public class HigherLower {
                 int in = reader.nextInt();
 
                 if (in < 1 || in > 100) {
-                    System.out.println("Your number is outside the range! ");
+                    System.out.println("Your number is outside the range! Try again: ");
                 } else if (in < winner) {
-                    System.out.println("Your number is too small.");
+                    System.out.println("Your number is too small. Try again: ");
                 } else if (in > winner) {
-                    System.out.println("Your number is too big.");
+                    System.out.println("Your number is too big. Try again: ");
                 } else {
                     System.out.println("Correct! You won the game!");
                     return;
                 }
             }
             catch (InputMismatchException e) {
-                System.out.println("That's not a natural number! ");
+                System.out.println("That's not a natural number! Try again: ");
                 reader.nextLine();
             } finally {
                 round -= 1;
             }
         }
-        System.out.println("You've lost!");
+        System.out.println("You've lost! The wining number was: " + winner);
     }
 }

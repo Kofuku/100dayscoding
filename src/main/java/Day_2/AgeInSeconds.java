@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class AgeInSeconds {
+
     public static void main(String[] args) {
         Date userDate = getUserDate();
         Timestamp userTime = new Timestamp(userDate.getTime());
